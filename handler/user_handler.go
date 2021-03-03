@@ -7,7 +7,15 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-//CreateUser func
+// CreateUser godoc
+// @Tags user
+// @Summary Create a user
+// @Description Create a user account in the DB
+// @Accept json
+// @Produce json
+// @Param payload body model.CreateUserStruct true "The payload."
+// @Success 200 {object} model.UserJSON
+// @Router /user [post]
 func CreateUser(c *fiber.Ctx) error {
 	user := new(model.User)
 	var err error
@@ -28,17 +36,7 @@ func CreateUser(c *fiber.Ctx) error {
 		return c.Status(400).JSON(resp)
 	}
 
-	// When a user is created I dont want to send back the password
-	// I tried all kinds of commands withint the User model
-	//such as `json:"-"` but this seems to be producing undesired results
-	//So I'll just define an anonymous struct here lol
-	//Life hack
-	u := struct {
-		ID       int    `json:"id"`
-		Username string `json:"username"`
-	}{int(user.ID), user.Username}
-
-	return c.JSON(u)
+	return c.JSON(user.JSON())
 }
 
 func hashPassword(password string) (string, error) {

@@ -6,7 +6,13 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-//AddPost :
+// AddPost godoc
+// @Tags post
+// @Summary Add a post
+// @Description Add a post
+// @Accept json
+// @Produce json
+// @Router /post [post]
 func AddPost(c *fiber.Ctx) error {
 	user, err := GetJWTIdentity(c)
 	if err != nil {
@@ -31,7 +37,15 @@ func AddPost(c *fiber.Ctx) error {
 	return c.JSON(post)
 }
 
-//GetUserPosts :
+// GetUserPosts godoc
+// @Tags post
+// @Summary Gets all posts of a user
+// @Description Gets all posts made by the user
+// @Accept json
+// @Produce json
+// @Security BearerToken
+// @Success 200 {array} model.Post
+// @Router /post/personal [get]
 func GetUserPosts(c *fiber.Ctx) error {
 	user, err := GetJWTIdentity(c)
 	if err != nil {

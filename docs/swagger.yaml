@@ -1,0 +1,97 @@
+basePath: /api
+definitions:
+  model.CreateUserStruct:
+    properties:
+      password:
+        default: "123456"
+        type: string
+      username:
+        default: admin
+        type: string
+    type: object
+  model.Post:
+    properties:
+      body:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      updatedAt:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  model.UserJSON:
+    properties:
+      id:
+        default: 2
+        type: integer
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: A simple blog API that I created to practice golang
+  title: Go Fiber Blog App
+  version: "1.0"
+paths:
+  /post:
+    post:
+      consumes:
+      - application/json
+      description: Add a post
+      produces:
+      - application/json
+      summary: Add a post
+      tags:
+      - post
+  /post/personal:
+    get:
+      consumes:
+      - application/json
+      description: Gets all posts made by the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Post'
+            type: array
+      security:
+      - BearerToken: []
+      summary: Gets all posts of a user
+      tags:
+      - post
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: Create a user account in the DB
+      parameters:
+      - description: The payload.
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateUserStruct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserJSON'
+      summary: Create a user
+      tags:
+      - user
+securityDefinitions:
+  BearerToken:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

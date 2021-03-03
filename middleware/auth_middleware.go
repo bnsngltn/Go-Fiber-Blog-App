@@ -1,8 +1,6 @@
 package middleware
 
 import (
-	"log"
-
 	"gihub.com/bnsngltn/go-fiber-blog-app/config"
 	"github.com/gofiber/fiber/v2"
 	jwtware "github.com/gofiber/jwt/v2"
@@ -17,7 +15,6 @@ func Protected() fiber.Handler {
 }
 
 func jwtError(c *fiber.Ctx, err error) error {
-	log.Println(string(c.Body()))
 	resp := fiber.Map{"message": "Missing or malformed JWT."}
 
 	return c.Status(400).JSON(resp)
