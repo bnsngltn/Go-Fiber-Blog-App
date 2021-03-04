@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"gihub.com/bnsngltn/go-fiber-blog-app/database"
-	"gihub.com/bnsngltn/go-fiber-blog-app/router"
+	"github.com/bnsngltn/go-fiber-blog-app/database"
+	"github.com/bnsngltn/go-fiber-blog-app/router"
 	"github.com/gofiber/fiber/v2"
 )
 

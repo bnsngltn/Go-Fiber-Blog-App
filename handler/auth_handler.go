@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"gihub.com/bnsngltn/go-fiber-blog-app/config"
-	"gihub.com/bnsngltn/go-fiber-blog-app/database"
-	"gihub.com/bnsngltn/go-fiber-blog-app/model"
+	"github.com/bnsngltn/go-fiber-blog-app/config"
+	"github.com/bnsngltn/go-fiber-blog-app/database"
+	"github.com/bnsngltn/go-fiber-blog-app/model"
 	"github.com/form3tech-oss/jwt-go"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"

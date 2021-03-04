@@ -1,10 +1,10 @@
 package router
 
 import (
-	_ "gihub.com/bnsngltn/go-fiber-blog-app/docs"
-	"gihub.com/bnsngltn/go-fiber-blog-app/handler"
-	"gihub.com/bnsngltn/go-fiber-blog-app/middleware"
 	swagger "github.com/arsmn/fiber-swagger/v2"
+	_ "github.com/bnsngltn/go-fiber-blog-app/docs"
+	"github.com/bnsngltn/go-fiber-blog-app/handler"
+	"github.com/bnsngltn/go-fiber-blog-app/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 

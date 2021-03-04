@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"gihub.com/bnsngltn/go-fiber-blog-app/config"
+	"github.com/bnsngltn/go-fiber-blog-app/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

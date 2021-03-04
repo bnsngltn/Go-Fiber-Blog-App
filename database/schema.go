@@ -1,6 +1,6 @@
 package database
 
-import "gihub.com/bnsngltn/go-fiber-blog-app/model"
+import "github.com/bnsngltn/go-fiber-blog-app/model"
 
 //CreateTables func
 func CreateTables() {
